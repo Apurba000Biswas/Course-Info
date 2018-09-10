@@ -59,7 +59,7 @@
                         android:src="@drawable/ic_new_course"
                         android:layout_width="40dp"
                         android:padding="10dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="24dp"
                         android:layout_height="40dp" />
                     <TextView
                         android:id="@+id/new_course_text"
@@ -89,12 +89,13 @@
                     android:textStyle="bold"
                     android:fontFamily="sans-serif-condensed"
                     android:textColor="@color/messageColor"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:visibility="gone"
 
                     android:layout_gravity="right"
                     android:text="@string/running_course"
                     android:layout_marginTop="6dp"
+                    android:layout_marginRight="6dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -112,9 +113,9 @@
                     android:layout_marginTop="6dp"
                     android:fontFamily="sans-serif-condensed"
                     android:textColor="@color/messageColor"
-                    android:textSize="18sp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginLeft="14dp"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginBottom="6dp"
                     android:visibility="gone"
                     android:text="@string/completed_course"
                     android:layout_width="wrap_content"

@@ -17,8 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ViewGroup rootHolder = findViewById(R.id.roo_holder);
-        View header = findViewById(R.id.header);
+
         ViewGroup courseStateHolder = findViewById(R.id.course_holder);
         ImageView newCourseImageView = findViewById(R.id.new_course_image);
         TextView newCourseTextView = findViewById(R.id.new_course_text);
@@ -37,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
         setClickListener(courseStateHolder,
                 completeCourseImageView,
                 completeCourseTextView);
-
-        setClickListener(rootHolder, header, courseStateHolder);
 
     }
 
