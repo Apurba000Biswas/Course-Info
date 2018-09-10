@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorPrimary"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+        <LinearLayout
+            android:id="@+id/roo_holder"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:background="@drawable/course_info_back"
+                android:src="@drawable/course_info"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="30dp"
+                android:layout_width="100dp"
+                android:layout_height="60dp"/>
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="16dp"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="18sp"
+                android:layout_gravity="right"
+                android:textColor="@color/messageColor"
+                android:background="@drawable/rev_arch"
+                android:elevation="10dp"
+                android:text="@string/course_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="100dp"
+                android:id="@+id/course_holder"
+                android:orientation="vertical"
+                android:background="@drawable/arch"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:padding="16dp"
+                android:elevation="8dp"
+                android:layout_marginRight="150dp"
+                android:layout_marginBottom="16dp"
+                android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:id="@+id/new_course_image"
+                        android:background="@drawable/circle"
+                        android:src="@drawable/ic_new_course"
+                        android:layout_width="40dp"
+                        android:padding="10dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_height="40dp" />
+                    <TextView
+                        android:id="@+id/new_course_text"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@color/messageColor"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="14dp"
+                        android:visibility="gone"
+                        android:text="@string/new_course"
+                        android:layout_marginTop="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                <ImageView
+                    android:id="@+id/running_course_image"
+                    android:layout_gravity="right"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/ic_running_course"
+                    android:padding="4dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+
+                <TextView
+                    android:id="@+id/running_course_text"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="@color/messageColor"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+
+                    android:layout_gravity="right"
+                    android:text="@string/running_course"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/complete_course_image"
+                    android:src="@drawable/ic_complete_course"
+                    android:background="@drawable/circle"
+                    android:layout_width="60dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_height="60dp" />
+
+                <TextView
+                    android:id="@+id/complete_course_text"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="@color/messageColor"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="14dp"
+                    android:visibility="gone"
+                    android:text="@string/completed_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+</ScrollView>
