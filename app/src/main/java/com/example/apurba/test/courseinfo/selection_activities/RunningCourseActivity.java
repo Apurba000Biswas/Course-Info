@@ -1,10 +1,6 @@
 package com.example.apurba.test.courseinfo.selection_activities;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
+
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +9,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 
-import com.example.apurba.test.courseinfo.MainActivity;
+
 import com.example.apurba.test.courseinfo.R;
 
 public class RunningCourseActivity extends AppCompatActivity {
