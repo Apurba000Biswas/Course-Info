@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">CourseInfo</string>
 
+    <string name="tittle_running_course">Running Courses</string>
+
     <string name="course_message">Chose Your Course State</string>
     <string name="new_course">Add a new\n course</string>
     <string name="running_course">Running\n course</string>

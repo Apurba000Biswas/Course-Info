@@ -1,16 +1,23 @@
 package com.example.apurba.test.courseinfo;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.transition.TransitionManager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.apurba.test.courseinfo.selection_activities.*;
+
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private void setClickListener(final ViewGroup transitionsContainer,
                                   final View imageView,
                                   final View textView){
+        final int id = imageView.getId();
         imageView.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
@@ -51,8 +59,37 @@ public class MainActivity extends AppCompatActivity {
                     textView.setVisibility(View.VISIBLE);
                 }else{
                     textView.setVisibility(View.GONE);
+                    switch (id){
+                        case R.id.new_course_image:
+                            showDialog(R.id.new_course_image);
+                            break;
+                        case R.id.running_course_image:
+                            Intent intent = new Intent(MainActivity.this,
+                                    RunningCourseActivity.class);
+                            startActivity(intent);
+                            break;
+                    }
                 }
             }
         });
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        LayoutInflater factory = LayoutInflater.from(this);
+        switch (id){
+            case R.id.new_course_image:
+                final View addCourseView = factory.inflate(
+                        R.layout.add_new_course_dialog,
+                        null);
+                return new AlertDialog.Builder(this, R.style.myDialogTheme)
+                        .setIcon(R.drawable.ic_new_course)
+                        .setTitle(R.string.new_course)
+                        .setView(addCourseView)
+                        .setPositiveButton("Done", null)
+                        .setNegativeButton("Cancel", null)
+                        .create();
+        }
+        return null;
     }
 }
