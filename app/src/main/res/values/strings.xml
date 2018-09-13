@@ -2,6 +2,7 @@
     <string name="app_name">CourseInfo</string>
 
     <string name="tittle_running_course">Running Courses</string>
+    <string name="tittle_complete_course">Completed Courses</string>
 
     <string name="course_message">Chose Your Course State</string>
     <string name="new_course">Add a new\n course</string>

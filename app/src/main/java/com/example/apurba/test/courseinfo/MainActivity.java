@@ -18,7 +18,6 @@ import com.example.apurba.test.courseinfo.selection_activities.*;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     private void setClickListener(final ViewGroup transitionsContainer,
                                   final View imageView,
                                   final View textView){
@@ -64,9 +64,14 @@ public class MainActivity extends AppCompatActivity {
                             showDialog(R.id.new_course_image);
                             break;
                         case R.id.running_course_image:
-                            Intent intent = new Intent(MainActivity.this,
+                            Intent intent_R = new Intent(MainActivity.this,
                                     RunningCourseActivity.class);
-                            startActivity(intent);
+                            startActivity(intent_R);
+                            break;
+                        case R.id.complete_course_image:
+                            Intent intent_C = new Intent(MainActivity.this,
+                                    CompletedCourseAcitvity.class);
+                            startActivity(intent_C);
                             break;
                     }
                 }
@@ -92,4 +97,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return null;
     }
+
 }
