@@ -34,6 +34,11 @@
                 android:value=".MainActivity" />
         </activity>
 
+        <provider
+            android:authorities="com.example.apurba.test.courseinfo"
+            android:name=".database.CourseDatabaseProvider"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
