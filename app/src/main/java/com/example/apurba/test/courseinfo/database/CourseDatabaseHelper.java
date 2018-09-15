@@ -28,7 +28,7 @@ public class CourseDatabaseHelper extends SQLiteOpenHelper{
                 + CourseEntry.COLUMN_COURSE_NAME + " TEXT NOT NULL, "
                 + CourseEntry.COLUMN_STATUS + " INTEGER NOT NULL, "
                 + CourseEntry.COLUMN_START_TIME + " TEXT NOT NULL, "
-                + CourseEntry.COLUMN_END_TIME + " TEXT NOT NULL, "
+                + CourseEntry.COLUMN_END_TIME + " TEXT, "
                 + CourseEntry.COLUMN_INSTRUCTOR_ID + " TEXT NOT NULL, "
                 + CourseEntry.COLUMN_OBJECTIVE + " TEXT, "
                 + CourseEntry.COLUMN_RESULT + " INTEGER NOT NULL);";

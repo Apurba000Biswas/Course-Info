@@ -9,6 +9,7 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -164,7 +165,8 @@ public class CourseDatabaseProvider extends ContentProvider{
 
     @Nullable
     @Override
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+    public Uri insert(@NonNull Uri uri
+            , @Nullable ContentValues contentValues) {
         final int match = sUriMatcher.match(uri);
         switch (match){
             case COURSES:
@@ -179,22 +181,27 @@ public class CourseDatabaseProvider extends ContentProvider{
         }
     }
 
-    private Uri insertCourse(Uri uri, ContentValues values){
+    private Uri insertCourse(Uri uri
+            , ContentValues values){
 
         checkForValidCourseValue(values);
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        long id = db.insert(CourseEntry.TABLE_NAME
+        long id = -1;
+        id = db.insert(CourseEntry.TABLE_NAME
                 , null
                 , values);
+
         if (id == -1){
             System.out.println("(Course table)Failed to insert row for " + uri);
             return null;
         }
+
         getContext().getContentResolver().notifyChange(uri, null);
         return ContentUris.withAppendedId(uri, id);
     }
 
-    private Uri insertInstructor(Uri uri, ContentValues values){
+    private Uri insertInstructor(Uri uri
+            , ContentValues values){
 
         checkForValidInstructorValue(values);
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
@@ -209,7 +216,8 @@ public class CourseDatabaseProvider extends ContentProvider{
         return ContentUris.withAppendedId(uri, id);
     }
 
-    private Uri insertTaken(Uri uri, ContentValues values){
+    private Uri insertTaken(Uri uri
+            , ContentValues values){
 
         checkForValidTaken(values);
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
@@ -274,7 +282,8 @@ public class CourseDatabaseProvider extends ContentProvider{
                         ,selectionArgs);
                 break;
             default:
-                throw new IllegalArgumentException("Deletion is not supported for " + uri);
+                throw new IllegalArgumentException
+                        ("Deletion is not supported for " + uri);
         }
         if (rowsDeleted != 0){
             getContext().getContentResolver().notifyChange(uri, null);
