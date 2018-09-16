@@ -13,7 +13,7 @@
     <string name="dialog_level_course_instructor_info">Instructor Info</string>
 
     <string name="course_id_hint">Enter course Code (Ex: CSE-200)</string>
-    <string name="course_name_hint">Enter Course name</string>
+    <string name="course_name_hint">Enter Course Name</string>
     <string name="status">Status</string>
     <string name="status_option_running">Running</string>
     <string name="status_option_complete">Complete</string>
@@ -38,4 +38,15 @@
     <string name="result_D">D</string>
     <string name="result_F">F</string>
     <string name="result_not_yet">Not yet</string>
+
+    <string name="instructor_id_hint">Enter Instructor Id (EX: MMH)</string>
+    <string name="instructor_name_hint">Enter Instructor Name</string>
+    <string name="instructor_dept_hint">Enter Department (EX: CSE)</string>
+    <string name="instructor_contacts_hint">Enter Contacts (phone/email)</string>
+
+    <string name="course_objective_level">Course Objective</string>
+    <string name="course_objective_hint">Write Some Course Objective</string>
+    <string name="save_button_level">Save</string>
+
+    <string name="save_message">Click on the save button to save the course</string>
 </resources>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:background="@color/colorPrimary"
+<ScrollView android:background="@color/colorPrimary"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,6 +12,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:paddingBottom="16dp"
         android:layout_height="wrap_content">
 
         <TextView
@@ -332,5 +333,88 @@
             android:text="@string/dialog_level_course_instructor_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <EditText
+            android:gravity="center_horizontal"
+            android:hint="@string/instructor_id_hint"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_width="match_parent"
+            android:layout_marginRight="16dp"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:gravity="center_horizontal"
+            android:hint="@string/instructor_name_hint"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_width="match_parent"
+            android:layout_marginRight="16dp"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:gravity="center_horizontal"
+            android:hint="@string/instructor_dept_hint"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_width="match_parent"
+            android:layout_marginRight="16dp"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:gravity="center_horizontal"
+            android:hint="@string/instructor_contacts_hint"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_width="match_parent"
+            android:layout_marginRight="16dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:layout_marginRight="16dp"
+            android:textColor="@color/appLevel"
+            android:text="@string/course_objective_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:paddingBottom="16dp"
+            android:gravity="center_horizontal"
+            android:hint="@string/course_objective_hint"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_width="match_parent"
+            android:layout_marginRight="16dp"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:paddingTop="26dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_marginRight="90dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="@color/appLevel"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:text="@string/save_message"
+                android:layout_height="wrap_content" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_alignParentRight="true"
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:backgroundTint="#f47100"
+                app:borderWidth="0dp"
+                app:elevation="6dp"
+                android:src="@drawable/ic_save"
+                app:fabSize="normal" />
+        </RelativeLayout>
+
+
     </LinearLayout>
 </ScrollView>
