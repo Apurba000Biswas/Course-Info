@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 import com.example.apurba.test.courseinfo.R;
@@ -106,8 +107,10 @@ public class AddCourse {
 
     public void setupStatusSpinner() {
         Spinner statusSpinner= mAddCourseView.findViewById(R.id.spinner_status);
-        final EditText endTimeEditText = mAddCourseView.findViewById(R.id.end_time_edit_text);
-        endTimeEditText.setVisibility(View.GONE);
+        final View endTimeHolder = mAddCourseView.findViewById(R.id.end_time_holder);
+        endTimeHolder.setVisibility(View.GONE);
+        final TextView endTimeLevel = mAddCourseView.findViewById(R.id.end_time_level);
+        endTimeLevel.setVisibility(View.GONE);
         final View resultHolder = mAddCourseView.findViewById(R.id.result_holder);
         resultHolder.setVisibility(View.GONE);
 
@@ -129,16 +132,21 @@ public class AddCourse {
                 if (!TextUtils.isEmpty(selection)) {
                     if (selection.equals(mcontext.getString(R.string.status_option_running))) {
                         status = CourseEntry.STATUS_RUNNING;
-                        endTimeEditText.setVisibility(View.GONE);
+                        endTimeHolder.setVisibility(View.GONE);
                         resultHolder.setVisibility(View.GONE);
+                        endTimeLevel.setVisibility(View.GONE);
                     } else if(selection.equals(mcontext.getString(R.string.status_option_complete))){
                         status = CourseEntry.STATUS_COMPLETE;
-                        endTimeEditText.setVisibility(View.VISIBLE);
+                        endTimeHolder.setVisibility(View.VISIBLE);
                         resultHolder.setVisibility(View.VISIBLE);
+                        endTimeLevel.setVisibility(View.VISIBLE);
+
                     } else {
                         status = CourseEntry.STATUS_UNKNOWN;
-                        endTimeEditText.setVisibility(View.GONE);
+                        endTimeHolder.setVisibility(View.GONE);
                         resultHolder.setVisibility(View.GONE);
+                        endTimeLevel.setVisibility(View.GONE);
+
                     }
                 }
             }

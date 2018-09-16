@@ -18,7 +18,12 @@
     <string name="status_option_running">Running</string>
     <string name="status_option_complete">Complete</string>
     <string name="status_option_unknown">Unknown</string>
-    <string name="course_start_time_hint">Enter course start time ( 13-09-2018)</string>
+    <string name="course_start_time_level">Start time</string>
+    <string name="day_level">Day</string>
+    <string name="month_level">Month</string>
+    <string name="year_level">Year</string>
+    <string name="course_end_time_level">End time</string>
+
     <string name="course_end_time_hint">Enter course end time ( 13-09-2018)</string>
     <string name="course_result">Result</string>
     <string name="result_A_plus">A+</string>
