@@ -47,6 +47,7 @@ public class CourseDatabaseContract {
 
         public static final int STATUS_RUNNING = 1;
         public static final int STATUS_COMPLETE = 0;
+        public static final int STATUS_UNKNOWN = 10;
 
         public static boolean isValidStatus(int status){
             if (status == STATUS_RUNNING || status == STATUS_COMPLETE){

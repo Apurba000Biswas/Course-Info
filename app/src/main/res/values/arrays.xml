@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="status_option">
+        <item>@string/status_option_unknown</item>
+        <item>@string/status_option_running</item>
+        <item>@string/status_option_complete</item>
+    </string-array>
+
+    <string-array name="result_option">
+        <item>@string/result_not_yet</item>
+        <item>@string/result_A_plus</item>
+        <item>@string/result_A</item>
+        <item>@string/result_A_minus</item>
+        <item>@string/result_B_plus</item>
+        <item>@string/result_B</item>
+        <item>@string/result_B_minus</item>
+        <item>@string/result_C_plus</item>
+        <item>@string/result_C</item>
+        <item>@string/result_C_minus</item>
+        <item>@string/result_D</item>
+        <item>@string/result_F</item>
+    </string-array>
+</resources>

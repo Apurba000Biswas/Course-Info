@@ -10,12 +10,17 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +28,9 @@ import com.example.apurba.test.courseinfo.database.CourseDatabaseContract.*;
 import com.example.apurba.test.courseinfo.selection_activities.*;
 
 public class MainActivity extends AppCompatActivity {
+
+    private int status;
+    private int result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,19 +41,19 @@ public class MainActivity extends AppCompatActivity {
         ViewGroup courseStateHolder = findViewById(R.id.course_holder);
         ImageView newCourseImageView = findViewById(R.id.new_course_image);
         TextView newCourseTextView = findViewById(R.id.new_course_text);
-        setClickListener(courseStateHolder,
+        setOptionClickListener(courseStateHolder,
                 newCourseImageView,
                 newCourseTextView);
 
         ImageView runningCourseImageView = findViewById(R.id.running_course_image);
         TextView runningCourseTextView = findViewById(R.id.running_course_text);
-        setClickListener(courseStateHolder,
+        setOptionClickListener(courseStateHolder,
                 runningCourseImageView,
                 runningCourseTextView);
 
         ImageView completeCourseImageView = findViewById(R.id.complete_course_image);
         TextView completeCourseTextView = findViewById(R.id.complete_course_text);
-        setClickListener(courseStateHolder,
+        setOptionClickListener(courseStateHolder,
                 completeCourseImageView,
                 completeCourseTextView);
 
@@ -219,9 +227,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void setClickListener(final ViewGroup transitionsContainer,
-                                  final View imageView,
-                                  final View textView){
+    private void setOptionClickListener(final ViewGroup transitionsContainer,
+                                        final View imageView,
+                                        final View textView){
         final int id = imageView.getId();
         imageView.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -260,6 +268,19 @@ public class MainActivity extends AppCompatActivity {
                 final View addCourseView = factory.inflate(
                         R.layout.add_new_course_dialog,
                         null);
+                status = CourseEntry.STATUS_UNKNOWN;
+                result = CourseEntry.RESULT_NOT_YET;
+
+                Spinner statusSpinner= addCourseView.findViewById(R.id.spinner_status);
+                EditText endTimeEditText = addCourseView.findViewById(R.id.end_time_edit_text);
+                endTimeEditText.setVisibility(View.GONE);
+                View resultHolder = addCourseView.findViewById(R.id.result_holder);
+                resultHolder.setVisibility(View.GONE);
+                setupStatusSpinner(statusSpinner, endTimeEditText, resultHolder);
+
+                Spinner resultSpinner = addCourseView.findViewById(R.id.spinner_result);
+                setUpResultSpinner(resultSpinner);
+
                 return new AlertDialog.Builder(this, R.style.myDialogTheme)
                         .setIcon(R.drawable.ic_new_course)
                         .setTitle(R.string.new_course)
@@ -269,6 +290,113 @@ public class MainActivity extends AppCompatActivity {
                         .create();
         }
         return null;
+    }
+
+    private void setUpResultSpinner(final Spinner resultSpinner){
+        ArrayAdapter resultSpinnerAdapter =
+                ArrayAdapter.createFromResource(this
+                        , R.array.result_option
+                        , android.R.layout.simple_spinner_item);
+        resultSpinnerAdapter.setDropDownViewResource(
+                android.R.layout.simple_dropdown_item_1line);
+        resultSpinner.setAdapter(resultSpinnerAdapter);
+
+        resultSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent
+                    , View view
+                    , int position
+                    , long id) {
+                String selection = (String) parent.getItemAtPosition(position);
+                if (!TextUtils.isEmpty(selection)){
+                    switch (selection){
+                        case "A+":
+                            result = CourseEntry.RESULT_A_PLUS;
+                            break;
+                        case "A":
+                            result = CourseEntry.RESULT_A;
+                            break;
+                        case "A-":
+                            result = CourseEntry.RESULT_A_MINUS;
+                            break;
+                        case "B+":
+                            result = CourseEntry.RESULT_B_PLUS;
+                            break;
+                        case "B":
+                            result = CourseEntry.RESULT_B;
+                            break;
+                        case "B-":
+                            result = CourseEntry.RESULT_B_MINUS;
+                            break;
+                        case "C+":
+                            result = CourseEntry.RESULT_C_PLUS;
+                            break;
+                        case "C":
+                            result = CourseEntry.RESULT_C;
+                            break;
+                        case "C-":
+                            result = CourseEntry.RESULT_C_MINU;
+                            break;
+                        case "D":
+                            result = CourseEntry.RESULT_D;
+                            break;
+                        case "F":
+                            result = CourseEntry.RESULT_F;
+                            break;
+                        case "Not yet":
+                            result = CourseEntry.RESULT_NOT_YET;
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    private void setupStatusSpinner(final Spinner statusSpinner
+            , final EditText endTimeEditText
+            , final View resultHolder) {
+        ArrayAdapter statusSpinnerAdapter =
+                ArrayAdapter.createFromResource(this
+                        , R.array.status_option
+                        , android.R.layout.simple_spinner_item);
+        statusSpinnerAdapter.setDropDownViewResource(
+                android.R.layout.simple_dropdown_item_1line);
+        statusSpinner.setAdapter(statusSpinnerAdapter);
+
+        statusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent
+                    , View view
+                    , int position
+                    , long id) {
+                String selection = (String) parent.getItemAtPosition(position);
+                if (!TextUtils.isEmpty(selection)) {
+                    if (selection.equals(getString(R.string.status_option_running))) {
+                        status = CourseEntry.STATUS_RUNNING;
+                        endTimeEditText.setVisibility(View.GONE);
+                        resultHolder.setVisibility(View.GONE);
+                    } else if(selection.equals(getString(R.string.status_option_complete))){
+                        status = CourseEntry.STATUS_COMPLETE;
+                        endTimeEditText.setVisibility(View.VISIBLE);
+                        resultHolder.setVisibility(View.VISIBLE);
+                    } else {
+                        status = CourseEntry.STATUS_UNKNOWN;
+                        endTimeEditText.setVisibility(View.GONE);
+                        resultHolder.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                status = CourseEntry.STATUS_UNKNOWN; // Unknown
+            }
+        });
     }
 
 }

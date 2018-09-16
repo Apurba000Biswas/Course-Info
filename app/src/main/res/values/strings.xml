@@ -8,4 +8,29 @@
     <string name="new_course">Add a new\n course</string>
     <string name="running_course">Running\n course</string>
     <string name="completed_course">Completed\n course</string>
+
+    <string name="dialog_level_course_overview">Overview</string>
+    <string name="dialog_level_course_instructor_info">Instructor Info</string>
+
+    <string name="course_id_hint">Enter course Code (Ex: CSE-200)</string>
+    <string name="course_name_hint">Enter Course name</string>
+    <string name="status">Status</string>
+    <string name="status_option_running">Running</string>
+    <string name="status_option_complete">Complete</string>
+    <string name="status_option_unknown">Unknown</string>
+    <string name="course_start_time_hint">Enter course start time ( 13-09-2018)</string>
+    <string name="course_end_time_hint">Enter course end time ( 13-09-2018)</string>
+    <string name="course_result">Result</string>
+    <string name="result_A_plus">A+</string>
+    <string name="result_A">A</string>
+    <string name="result_A_minus">A-</string>
+    <string name="result_B_plus">B+</string>
+    <string name="result_B">B</string>
+    <string name="result_B_minus">B-</string>
+    <string name="result_C_plus">C+</string>
+    <string name="result_C">C</string>
+    <string name="result_C_minus">C-</string>
+    <string name="result_D">D</string>
+    <string name="result_F">F</string>
+    <string name="result_not_yet">Not yet</string>
 </resources>

@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#FFA000</color>
     <color name="colorPrimaryDark">#FFA000</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#002a54</color>
     #f37f19
     <color name="messageColor">#FFA000</color>
     <color name="appLevel">#002a54</color>

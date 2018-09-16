@@ -9,15 +9,120 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:layout_margin="16dp"
         android:layout_height="wrap_content">
 
         <TextView
+            android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
             android:textStyle="bold"
             android:textColor="@color/appLevel"
-            android:text="Add new Course Here"
+            android:text="@string/dialog_level_course_overview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <EditText
+            android:gravity="center_horizontal"
+            android:hint="@string/course_id_hint"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:gravity="center_horizontal"
+            android:hint="@string/course_name_hint"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Label -->
+            <TextView
+                android:text="@string/status"
+                style="@style/CategoryStyle" />
+
+            <!-- Input field -->
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <!-- Gender drop-down spinner -->
+                <Spinner
+                    android:id="@+id/spinner_status"
+                    android:layout_height="48dp"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="16dp"
+                    android:spinnerMode="dropdown"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <EditText
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/start_time_edit_text"
+            android:textSize="16sp"
+            android:hint="@string/course_start_time_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/end_time_edit_text"
+            android:textSize="16sp"
+            android:hint="@string/course_end_time_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/result_holder"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Label -->
+            <TextView
+                android:text="@string/course_result"
+                style="@style/CategoryStyle" />
+
+            <!-- Input field -->
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <!-- Gender drop-down spinner -->
+                <Spinner
+                    android:id="@+id/spinner_result"
+                    android:layout_height="48dp"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="16dp"
+                    android:spinnerMode="dropdown"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textColor="@color/appLevel"
+            android:text="@string/dialog_level_course_instructor_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>
