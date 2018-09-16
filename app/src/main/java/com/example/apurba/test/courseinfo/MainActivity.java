@@ -269,9 +269,17 @@ public class MainActivity extends AppCompatActivity {
                 final View addCourseView = factory.inflate(
                         R.layout.add_new_course_dialog,
                         null);
-                AddCourse mAddCourseHelper = new AddCourse(addCourseView, this);
+                final AddCourse mAddCourseHelper = new AddCourse(addCourseView, this);
                 mAddCourseHelper.setupStatusSpinner();
                 mAddCourseHelper.setUpResultSpinner();
+
+                mAddCourseHelper.setUpStartDaySpinner();
+                mAddCourseHelper.setUpStartMonthSpinner();
+                mAddCourseHelper.setUPStartYearSpinner();
+
+                mAddCourseHelper.setUpEndDaySpinner();
+                mAddCourseHelper.setUpEndMonthSpinner();
+                mAddCourseHelper.setUpEndYearSpinner();
 
                 return new AlertDialog.Builder(this, R.style.myDialogTheme)
                         .setIcon(R.drawable.ic_new_course)

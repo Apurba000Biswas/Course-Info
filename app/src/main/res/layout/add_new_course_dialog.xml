@@ -9,11 +9,14 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_margin="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:layout_height="wrap_content">
 
         <TextView
             android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
             android:gravity="center_horizontal"
             android:textStyle="bold"
             android:textColor="@color/appLevel"
@@ -27,11 +30,13 @@
             android:fontFamily="sans-serif-condensed"
             android:textStyle="bold"
             android:layout_width="match_parent"
+            android:layout_marginRight="16dp"
             android:layout_height="match_parent" />
 
         <EditText
             android:gravity="center_horizontal"
             android:hint="@string/course_name_hint"
+            android:layout_marginRight="16dp"
             android:fontFamily="sans-serif-condensed"
             android:textStyle="bold"
             android:layout_width="match_parent"
@@ -83,6 +88,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_marginLeft="16dp"
@@ -99,10 +105,10 @@
                 <LinearLayout
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
 
-                    <!-- Gender drop-down spinner -->
+                    <!-- day drop-down spinner -->
                     <Spinner
                         android:id="@+id/start_day_spinner"
                         android:layout_height="48dp"
@@ -127,10 +133,10 @@
                 <LinearLayout
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
 
-                    <!-- Gender drop-down spinner -->
+                    <!-- Month drop-down spinner -->
                     <Spinner
                         android:id="@+id/start_month_spinner"
                         android:layout_height="48dp"
@@ -143,7 +149,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:layout_marginRight="16dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -156,10 +161,10 @@
                 <LinearLayout
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
 
-                    <!-- Gender drop-down spinner -->
+                    <!-- Year drop-down spinner -->
                     <Spinner
                         android:id="@+id/start_year_spinner"
                         android:layout_height="48dp"
@@ -210,10 +215,10 @@
                 <LinearLayout
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
 
-                    <!-- Gender drop-down spinner -->
+                    <!-- Day drop-down spinner -->
                     <Spinner
                         android:id="@+id/end_day_spinner"
                         android:layout_height="48dp"
@@ -238,10 +243,10 @@
                 <LinearLayout
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
 
-                    <!-- Gender drop-down spinner -->
+                    <!-- Month drop-down spinner -->
                     <Spinner
                         android:id="@+id/end_month_spinner"
                         android:layout_height="48dp"
@@ -253,7 +258,6 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginRight="16dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -267,10 +271,10 @@
                 <LinearLayout
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
 
-                    <!-- Gender drop-down spinner -->
+                    <!-- Year drop-down spinner -->
                     <Spinner
                         android:id="@+id/end_year_spinner"
                         android:layout_height="48dp"
@@ -323,6 +327,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
             android:textStyle="bold"
+            android:layout_marginRight="16dp"
             android:textColor="@color/appLevel"
             android:text="@string/dialog_level_course_instructor_info"
             android:layout_width="match_parent"
