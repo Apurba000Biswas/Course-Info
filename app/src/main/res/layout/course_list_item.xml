@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/course_code"
+        style="@style/courseItemStyle"
+        android:text="place Holder"/>
+
+    <TextView
+        android:id="@+id/course_name"
+        style="@style/courseItemStyle"
+        android:paddingTop="10dp"
+        android:text="place Holder"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/courseItemStyle"
+            android:layout_marginRight="10dp"
+            android:text="@string/instructor_id_level" />
+
+        <TextView
+            android:id="@+id/instructor_id"
+            android:layout_marginRight="10dp"
+            style="@style/courseItemStyle"
+            android:text="place Holder" />
+
+        <TextView
+            style="@style/courseItemStyle"
+            android:layout_marginRight="10dp"
+            android:text="@string/status_level" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_marginRight="10dp"
+            style="@style/courseItemStyle"
+            android:text="Place Holder" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/courseItemStyle"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:text="@string/course_start_time_level" />
+
+        <TextView
+            android:id="@+id/start_time"
+            style="@style/courseItemStyle"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:text="Place Holder" />
+
+        <TextView
+            style="@style/courseItemStyle"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:text="@string/course_end_time_level" />
+
+        <TextView
+            android:id="@+id/end_time"
+            style="@style/courseItemStyle"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:text="Place Holder" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

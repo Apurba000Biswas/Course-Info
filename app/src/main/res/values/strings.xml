@@ -65,4 +65,7 @@
 
     <string name="empty_running_course_state">No running course found</string>
     <string name="empty_complete_course_state">No completed course found</string>
+
+    <string name="instructor_id_level">Instructor Id: </string>
+    <string name="status_level">Status: </string>
 </resources>
