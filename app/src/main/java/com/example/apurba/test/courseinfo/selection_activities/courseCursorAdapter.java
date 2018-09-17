@@ -24,7 +24,9 @@ public class courseCursorAdapter extends CursorAdapter{
     }
 
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
+    public View newView(Context context
+            , Cursor cursor
+            , ViewGroup viewGroup) {
         return LayoutInflater.from(context).inflate(R.layout.course_list_item
                 , viewGroup
                 , false);

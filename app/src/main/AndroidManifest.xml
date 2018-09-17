@@ -16,8 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".selection_activities.CourseListActivity"
             android:parentActivityName=".MainActivity"
@@ -28,10 +26,11 @@
         </activity>
 
         <provider
-            android:authorities="com.example.apurba.test.courseinfo"
             android:name=".database.CourseDatabaseProvider"
-            android:exported="false"/>
+            android:authorities="com.example.apurba.test.courseinfo"
+            android:exported="false" />
 
+        <activity android:name=".selection_activities.CourseProfileActivity"></activity>
     </application>
 
 </manifest>

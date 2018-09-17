@@ -11,6 +11,8 @@ import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -323,6 +325,8 @@ public class AddCourse {
                             .insert(CourseEntry.CONTENT_URI
                                     , getCourseContentValues());
                     if (courseResponseUri == null){
+                        Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.fade_in);
+                        outputTextView.startAnimation(animation);
                         outputTextView.setText(mContext.getString(R.string.course_insert_failed_message));
                     } else {
                         mContext.getContentResolver().
@@ -333,8 +337,12 @@ public class AddCourse {
                                 .insert(TakenEntry.CONTENT_URI
                                         , getTakenContentValues());
                         if (takenResponseUri == null){
+                            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.fade_in);
+                            outputTextView.startAnimation(animation);
                             outputTextView.setText(mContext.getString(R.string.problem_message));
                         }else{
+                            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.fade_in);
+                            outputTextView.startAnimation(animation);
                             outputTextView.setText(mContext.getString(R.string.successful_message));
                         }
                     }
@@ -415,6 +423,8 @@ public class AddCourse {
                 .trim()
                 .toUpperCase();
         if (TextUtils.isEmpty(courseCode)){
+            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.fade_in);
+            outputMessage.startAnimation(animation);
             outputMessage.setText(resources.getString(R.string.course_code_empty_message));
             return false;
         }
@@ -426,6 +436,8 @@ public class AddCourse {
                 .trim()
                 .toLowerCase();
         if (TextUtils.isEmpty(courseName)){
+            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.fade_in);
+            outputMessage.startAnimation(animation);
             outputMessage.setText(resources.getString(R.string.course_name_empty_message));
             return false;
         }
@@ -437,6 +449,8 @@ public class AddCourse {
                 .trim()
                 .toUpperCase();
         if (TextUtils.isEmpty(instructorId)){
+            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.fade_in);
+            outputMessage.startAnimation(animation);
             outputMessage.setText(resources.getString(R.string.instructor_id_empty_message));
             return false;
         }
@@ -448,6 +462,8 @@ public class AddCourse {
                 .trim()
                 .toLowerCase();
         if (TextUtils.isEmpty(instructorName)){
+            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.fade_in);
+            outputMessage.startAnimation(animation);
             outputMessage.setText(resources.getString(R.string.instructor_name_empty_message));
             return false;
         }
