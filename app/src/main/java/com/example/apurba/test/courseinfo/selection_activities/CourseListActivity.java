@@ -1,6 +1,9 @@
 package com.example.apurba.test.courseinfo.selection_activities;
 
+import android.content.ContentUris;
+import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.LoaderManager;
@@ -12,6 +15,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,6 +38,25 @@ public class CourseListActivity extends AppCompatActivity {
         int running = getIntent().getIntExtra("running",0);
         int complete = getIntent().getIntExtra("complete", 0);
         int unknown = getIntent().getIntExtra("unknown", 0);
+        setActivityStatus(running, complete, unknown);
+
+        ListView courseListView = findViewById(R.id.course_list_view);
+        mCursorAdapter = new courseCursorAdapter(this, null);
+        courseListView.setAdapter(mCursorAdapter);
+
+        View emptyView = findViewById(R.id.empty_state_view);
+        courseListView.setEmptyView(emptyView);
+        getSupportLoaderManager().initLoader(COURSE_LOADER_ID
+                , null
+                , courseLoaderlistener);
+
+        setListViewToClickResponse(courseListView);
+
+    }
+
+    private void setActivityStatus(int running
+            , int complete
+            , int unknown){
         if (running != 0){
             setCustomTittle(getResources().getString(R.string.tittle_running_course)
                     , getResources().getString(R.string.empty_running_course_state));
@@ -47,15 +70,22 @@ public class CourseListActivity extends AppCompatActivity {
         if (unknown != 0){
             status = CourseEntry.STATUS_UNKNOWN;
         }
+    }
 
-        ListView courseListView = findViewById(R.id.course_list_view);
-        mCursorAdapter = new courseCursorAdapter(this, null);
-        courseListView.setAdapter(mCursorAdapter);
-
-        View emptyView = findViewById(R.id.empty_state_view);
-        courseListView.setEmptyView(emptyView);
-        getSupportLoaderManager().initLoader(COURSE_LOADER_ID, null, courseLoaderlistener);
-
+    private void setListViewToClickResponse(ListView list){
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView
+                    , View view
+                    , int position
+                    , long id) {
+                Intent profileIntent = new Intent(CourseListActivity.this
+                        , CourseProfileActivity.class);
+                Uri uri = ContentUris.withAppendedId(CourseEntry.CONTENT_URI, id);
+                profileIntent.setData(uri);
+                startActivity(profileIntent);
+            }
+        });
     }
 
     private void setCustomTittle(String tittle, String emptyStateMessage){
@@ -75,7 +105,8 @@ public class CourseListActivity extends AppCompatActivity {
 
 
 
-    private LoaderManager.LoaderCallbacks<Cursor> courseLoaderlistener = new LoaderManager.LoaderCallbacks<Cursor>() {
+    private LoaderManager.LoaderCallbacks<Cursor> courseLoaderlistener =
+            new LoaderManager.LoaderCallbacks<Cursor>() {
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 
