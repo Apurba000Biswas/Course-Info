@@ -281,6 +281,8 @@ public class MainActivity extends AppCompatActivity {
                 mAddCourseHelper.setUpEndMonthSpinner();
                 mAddCourseHelper.setUpEndYearSpinner();
 
+                mAddCourseHelper.setSaveButton();
+
                 return new AlertDialog.Builder(this, R.style.myDialogTheme)
                         .setIcon(R.drawable.ic_new_course)
                         .setTitle(R.string.new_course)

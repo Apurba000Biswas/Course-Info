@@ -49,4 +49,17 @@
     <string name="save_button_level">Save</string>
 
     <string name="save_message">Click on the save button to save the course</string>
+
+    <string name="course_code_empty_message">Course code can not be empty.
+        Enter a course code, Ex: CSE-207</string>
+    <string name="course_name_empty_message">Course should have a name</string>
+    <string name="instructor_id_empty_message">Instructor Id can not be empty.
+        Enter an Instructor id, Ex: MMH</string>
+    <string name="instructor_name_empty_message">Instructor should have a name</string>
+    <string name="course_insert_failed_message">Failed to save this course.
+        Already Exits this course code</string>
+    <string name="instructor_insert_failed_message">Failed to save course.
+        Instructor id can not be same more than one instructor</string>
+    <string name="problem_message">There was a problem saving this course</string>
+    <string name="successful_message">Saved this course</string>
 </resources>
