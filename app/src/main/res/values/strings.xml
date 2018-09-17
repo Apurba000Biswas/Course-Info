@@ -62,4 +62,7 @@
         Instructor id can not be same more than one instructor</string>
     <string name="problem_message">There was a problem saving this course</string>
     <string name="successful_message">Saved this course</string>
+
+    <string name="empty_running_course_state">No running course found</string>
+    <string name="empty_complete_course_state">No completed course found</string>
 </resources>

@@ -10,17 +10,12 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -247,12 +242,14 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.running_course_image:
                             Intent intent_R = new Intent(MainActivity.this,
-                                    RunningCourseActivity.class);
+                                    CourseListActivity.class);
+                            intent_R.putExtra("running", 1);
                             startActivity(intent_R);
                             break;
                         case R.id.complete_course_image:
-                            Intent intent_C = new Intent(MainActivity.this,
-                                    CompletedCourseAcitvity.class);
+                            Intent intent_C= new Intent(MainActivity.this,
+                                    CourseListActivity.class);
+                            intent_C.putExtra("complete", 2);
                             startActivity(intent_C);
                             break;
                     }

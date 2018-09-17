@@ -19,14 +19,7 @@
 
 
         <activity
-            android:name=".selection_activities.RunningCourseActivity"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme_ActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity android:name=".selection_activities.CompletedCourseAcitvity"
+            android:name=".selection_activities.CourseListActivity"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme_ActionBar">
             <meta-data
