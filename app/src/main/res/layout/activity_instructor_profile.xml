@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/instructor_header_holder"
+        android:layout_width="match_parent"
+        android:background="@drawable/slope"
+        android:layout_height="200dp">
+
+    </RelativeLayout>
+</RelativeLayout>

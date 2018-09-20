@@ -30,10 +30,10 @@
             android:authorities="com.example.apurba.test.courseinfo"
             android:exported="false" />
 
-        <activity android:name=".selection_activities.CourseProfileActivity"
-            android:theme="@style/AppTheme_CourseProfile_ActionBar">
-        </activity>
-
+        <activity
+            android:name=".selection_activities.CourseProfileActivity"
+            android:theme="@style/AppTheme_CourseProfile_ActionBar"></activity>
+        <activity android:name=".selection_activities.InstructorProfileActivity"></activity>
     </application>
 
 </manifest>

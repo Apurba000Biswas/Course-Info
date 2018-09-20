@@ -68,8 +68,7 @@
             <TextView
                 android:id="@+id/course_profile_status"
                 android:layout_marginLeft="30dp"
-                style="@style/courseItemStyle"
-                android:text="@string/status" />
+                style="@style/courseItemStyle" />
 
         </LinearLayout>
         <LinearLayout
@@ -88,8 +87,7 @@
             <TextView
                 android:id="@+id/course_profile_start"
                 android:layout_marginLeft="30dp"
-                style="@style/courseItemStyle"
-                android:text="@string/course_profile_start_level"/>
+                style="@style/courseItemStyle" />
 
         </LinearLayout>
         <LinearLayout
@@ -107,8 +105,7 @@
             <TextView
                 android:id="@+id/course_profile_end"
                 android:layout_marginLeft="30dp"
-                style="@style/courseItemStyle"
-                android:text="@string/course_profile_end_level"/>
+                style="@style/courseItemStyle" />
 
         </LinearLayout>
 
@@ -137,13 +134,11 @@
                     android:id="@+id/course_profile_instructor_id"
                     android:layout_marginLeft="26dp"
                     android:layout_marginTop="10dp"
-                    style="@style/courseItemStyle"
-                    android:text="instructor id" />
+                    style="@style/courseItemStyle" />
                 <TextView
                     android:id="@+id/course_profile_instructor_name"
                     android:layout_marginLeft="26dp"
-                    style="@style/courseItemStyle"
-                    android:text="instructor name" />
+                    style="@style/courseItemStyle" />
 
             </LinearLayout>
             <ImageView
@@ -170,8 +165,7 @@
             <TextView
                 android:id="@+id/course_profile_result"
                 android:layout_marginLeft="30dp"
-                style="@style/courseItemStyle"
-                android:text="@string/course_result" />
+                style="@style/courseItemStyle" />
 
         </LinearLayout>
         <LinearLayout
@@ -192,8 +186,7 @@
             <TextView
                 android:id="@+id/course_profile_objective"
                 android:layout_marginTop="10dp"
-                style="@style/courseItemStyle"
-                android:text="@string/course_profile_objective_level" />
+                style="@style/courseItemStyle" />
 
         </LinearLayout>
 

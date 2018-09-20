@@ -1,5 +1,6 @@
 package com.example.apurba.test.courseinfo.selection_activities;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
@@ -47,11 +48,26 @@ public class CourseProfileActivity extends AppCompatActivity {
 
         getSupportLoaderManager().initLoader(INSTRUCTOR_LOADER_ID
                 , null
-                , instructorListerner);
+                , instructorListener);
+        setInstructorDetailsClickListener();
+
+    }
+
+    private void setInstructorDetailsClickListener(){
+        View instructorHolder = findViewById(R.id.course_profile_instructor_holder);
+        instructorHolder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent instructorIntent = new Intent(CourseProfileActivity.this
+                        , InstructorProfileActivity.class);
+                startActivity(instructorIntent);
+            }
+        });
     }
 
 
-    private LoaderManager.LoaderCallbacks<Cursor> instructorListerner =
+
+    private LoaderManager.LoaderCallbacks<Cursor> instructorListener =
             new LoaderManager.LoaderCallbacks<Cursor>(){
 
         @Override
@@ -73,9 +89,11 @@ public class CourseProfileActivity extends AppCompatActivity {
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
             data.moveToFirst();
-            System.out.println("Cursor size: " + data.getCount() + "------------------------");
-            TextView instructorNameTextView = findViewById(R.id.course_profile_instructor_name);
-            instructorNameTextView.setText(data.getString(data.getColumnIndex(InstructorEntry.COLUMN_INSTRUCTOR_NAME)));
+            TextView instructorNameTextView =
+                    findViewById(R.id.course_profile_instructor_name);
+            instructorNameTextView.
+                    setText(data.
+                            getString(data.getColumnIndex(InstructorEntry.COLUMN_INSTRUCTOR_NAME)));
         }
 
         @Override
@@ -121,11 +139,13 @@ public class CourseProfileActivity extends AppCompatActivity {
                     TextView resultTextView = findViewById(R.id.course_profile_result);
                     TextView objective = findViewById(R.id.course_profile_objective);
 
-                    statusTextView.setText(CourseEntry.getStatus(Integer.parseInt(courseData.get(CourseEntry.COLUMN_STATUS))));
+                    statusTextView.setText(CourseEntry.
+                            getStatus(Integer.parseInt(courseData.get(CourseEntry.COLUMN_STATUS))));
                     startDateTextView.setText(courseData.get(CourseEntry.COLUMN_START_TIME));
                     endDateTextView.setText(courseData.get(CourseEntry.COLUMN_END_TIME));
                     instructorIdTextView.setText(selectedCourseInstructorId);
-                    resultTextView.setText(CourseEntry.getResult(Integer.parseInt(courseData.get(CourseEntry.COLUMN_RESULT))));
+                    resultTextView.setText(CourseEntry.
+                            getResult(Integer.parseInt(courseData.get(CourseEntry.COLUMN_RESULT))));
                     objective.setText(courseData.get(CourseEntry.COLUMN_OBJECTIVE));
                 }
 
