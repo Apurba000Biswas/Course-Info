@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/course_code_text_view"
         android:layout_margin="16dp"
-        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="CSE 207"
         style="@style/courseItemStyle"
         android:layout_width="match_parent"

@@ -1,122 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:background="#FFFFFF"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true">
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="#FFFFFF">
 
     <RelativeLayout
         android:id="@+id/instructor_header_holder"
         android:layout_width="match_parent"
-        android:background="@drawable/slope"
-        android:layout_height="200dp">
+        android:layout_height="200dp"
+        android:background="@drawable/slope">
 
         <android.support.v7.widget.CardView
+            android:id="@+id/profile_image_holder"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
             android:layout_marginLeft="32dp"
             android:elevation="12dp"
-            android:id="@+id/profile_image_holder"
-            app:cardCornerRadius="40dp"
-            android:layout_alignParentBottom="true"
             android:innerRadius="0dp"
             android:shape="ring"
-            android:thicknessRatio="1.9">
+            android:thicknessRatio="1.9"
+            app:cardCornerRadius="40dp">
             <ImageView
-                android:layout_height="80dp"
-                android:layout_width="match_parent"
                 android:id="@+id/imageView1"
-                android:scaleType="centerCrop"
-                android:src="@drawable/hugh_jackman"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true">
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hugh_jackman">
             </ImageView>
         </android.support.v7.widget.CardView>
 
         <TextView
             android:id="@+id/instructor_profile_ins_id"
-            android:textSize="30sp"
-            android:text="Instructor id"
-            android:layout_marginTop="30dp"
+            style="@style/courseItemStyle"
             android:layout_centerHorizontal="true"
-            style="@style/courseItemStyle" />
+            android:layout_marginTop="30dp"
+            android:text="Instructor id"
+            android:textSize="30sp" />
         <TextView
-            android:layout_below="@id/instructor_profile_ins_id"
             android:id="@+id/instructor_profile_ins_name"
+            style="@style/courseItemStyle"
+            android:layout_below="@id/instructor_profile_ins_id"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:text="instructor name"
-            android:textSize="20sp"
-            style="@style/courseItemStyle" />
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/instructor_profile_dept_holder"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/instructor_header_holder"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_below="@id/instructor_header_holder"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
 
         <TextView
-            android:textStyle="bold"
-            android:textSize="18sp"
+            style="@style/courseItemStyle"
+            android:layout_marginLeft="16dp"
             android:text="@string/instructor_profile_dept_level"
-            style="@style/courseItemStyle" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/instructor_profile_dept"
+            style="@style/courseItemStyle"
             android:layout_marginLeft="30dp"
-            android:text="Place Holder"
-            style="@style/courseItemStyle" />
+            android:text="Place Holder" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/instructor_profile_contact_holder"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/instructor_profile_dept_holder"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_below="@id/instructor_profile_dept_holder"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
         <TextView
-            android:textStyle="bold"
-            android:textSize="18sp"
+            style="@style/courseItemStyle"
+            android:layout_marginLeft="16dp"
             android:text="@string/instructor_profile_contact_level"
-            style="@style/courseItemStyle" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/instructor_profile_contact"
+            style="@style/courseItemStyle"
             android:layout_marginLeft="30dp"
-            android:text="Place Holder"
-            style="@style/courseItemStyle" />
+            android:text="Place Holder" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/instructor_profile_courses_level"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
+
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/instructor_profile_contact_holder"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_below="@id/instructor_profile_contact_holder"
-        android:text="@string/instructor_profile_courses_level"
-        style="@style/courseItemStyle" />
-
-    <ListView
-        android:layout_below="@id/instructor_profile_courses_level"
-        android:id="@+id/taken_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="16dp"
-        android:divider="@null"
-        android:dividerHeight="0dp">
-    </ListView>
+        android:innerRadius="0dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/instructor_profile_courses_level"
+                style="@style/courseItemStyle"
+                android:layout_below="@id/instructor_profile_contact_holder"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/instructor_profile_courses_level"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <ListView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/taken_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/instructor_profile_courses_level"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:scrollbars="none">
+            </ListView>
+
+        </LinearLayout>
+
+
+
+
+    </android.support.v7.widget.CardView>
+
 
 </RelativeLayout>
+
+</ScrollView>

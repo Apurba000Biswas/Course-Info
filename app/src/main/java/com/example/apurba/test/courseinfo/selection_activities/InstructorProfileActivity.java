@@ -26,7 +26,8 @@ public class InstructorProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_instructor_profile);
+        View view = getLayoutInflater().inflate(R.layout.activity_instructor_profile, null);
+        setContentView(view);
 
         selectedInstructorId = getIntent().getStringExtra("instructorId");
         String instructorName = getIntent().getStringExtra("instructorName");
@@ -44,6 +45,7 @@ public class InstructorProfileActivity extends AppCompatActivity {
                 , null
                 , takenLoaderListener);
     }
+
 
 
     private void setAnimationToHeaders(String instructorId
