@@ -46,7 +46,7 @@ public class CourseDatabaseHelper extends SQLiteOpenHelper{
 
 
         String SQL_CREATE_TAKEN_TABLE = "CREATE TABLE " + TakenEntry.TABLE_NAME + " ("
-                + TakenEntry.INSTRUCTOR_ID + " TEXT NOT NULL, "
+                + TakenEntry._ID + " TEXT NOT NULL, "
                 + TakenEntry.COURSE_ID + " TEXT NOT NULL);";
         System.out.println(SQL_CREATE_TAKEN_TABLE);
         sqLiteDatabase.execSQL(SQL_CREATE_TAKEN_TABLE);

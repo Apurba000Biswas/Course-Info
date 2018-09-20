@@ -118,7 +118,7 @@ public class CourseDatabaseProvider extends ContentProvider{
                         , sortOrder);
                 break;
             case TAKEN_ID:
-                selection = TakenEntry.INSTRUCTOR_ID + "=?";
+                selection = TakenEntry._ID + "=?";
                 selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
                 cursor = db.query(TakenEntry.TABLE_NAME
                         , projection
@@ -274,7 +274,7 @@ public class CourseDatabaseProvider extends ContentProvider{
                         , selectionArgs);
                 break;
             case TAKEN_ID:
-                selection = TakenEntry.INSTRUCTOR_ID + "=?";
+                selection = TakenEntry._ID + "=?";
                 selectionArgs = new String[]
                         {String.valueOf(ContentUris.parseId(uri))};
                 rowsDeleted = db.delete(TakenEntry.TABLE_NAME
@@ -334,7 +334,7 @@ public class CourseDatabaseProvider extends ContentProvider{
                         , selection
                         , selectionArgs);
             case TAKEN_ID:
-                selection = TakenEntry.INSTRUCTOR_ID + "=?";
+                selection = TakenEntry._ID + "=?";
                 selectionArgs = new String[]
                         {String.valueOf(ContentUris.parseId(uri))};
                 return updateTaken(uri
@@ -367,8 +367,8 @@ public class CourseDatabaseProvider extends ContentProvider{
     }
 
     private void checkForValidTaken(ContentValues values){
-        if (values.containsKey(TakenEntry.INSTRUCTOR_ID)){
-            String instructorId = values.getAsString(TakenEntry.INSTRUCTOR_ID);
+        if (values.containsKey(TakenEntry._ID)){
+            String instructorId = values.getAsString(TakenEntry._ID);
             if (TextUtils.isEmpty(instructorId)){
                 throw new IllegalArgumentException
                         ("Taken requires an instructor id");

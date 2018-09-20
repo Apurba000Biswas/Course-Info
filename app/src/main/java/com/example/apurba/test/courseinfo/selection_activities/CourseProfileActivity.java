@@ -30,6 +30,7 @@ public class CourseProfileActivity extends AppCompatActivity {
     private static final int INSTRUCTOR_LOADER_ID = 1;
     private String selectedCourseCode;
     private String selectedCourseInstructorId;
+    private String selectedCourseInstructorName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,8 @@ public class CourseProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent instructorIntent = new Intent(CourseProfileActivity.this
                         , InstructorProfileActivity.class);
+                instructorIntent.putExtra("instructorId", selectedCourseInstructorId);
+                instructorIntent.putExtra("instructorName", selectedCourseInstructorName);
                 startActivity(instructorIntent);
             }
         });
@@ -91,9 +94,10 @@ public class CourseProfileActivity extends AppCompatActivity {
             data.moveToFirst();
             TextView instructorNameTextView =
                     findViewById(R.id.course_profile_instructor_name);
+            selectedCourseInstructorName = data.
+                    getString(data.getColumnIndex(InstructorEntry.COLUMN_INSTRUCTOR_NAME));
             instructorNameTextView.
-                    setText(data.
-                            getString(data.getColumnIndex(InstructorEntry.COLUMN_INSTRUCTOR_NAME)));
+                    setText(selectedCourseInstructorName);
         }
 
         @Override

@@ -153,7 +153,7 @@ public class CourseDatabaseContract {
         public static final String TABLE_NAME = "taken";
         public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_TAKEN);
 
-        public static final String INSTRUCTOR_ID = "instructor_id";
+        public static final String _ID = BaseColumns._ID;
         public static final String COURSE_ID = "course_id";
 
         public static final String CONTENT_LIST_TYPE =

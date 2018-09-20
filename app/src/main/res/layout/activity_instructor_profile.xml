@@ -2,7 +2,8 @@
 <RelativeLayout android:background="#FFFFFF"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:id="@+id/instructor_header_holder"
@@ -10,5 +11,112 @@
         android:background="@drawable/slope"
         android:layout_height="200dp">
 
+        <android.support.v7.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="32dp"
+            android:elevation="12dp"
+            android:id="@+id/profile_image_holder"
+            app:cardCornerRadius="40dp"
+            android:layout_alignParentBottom="true"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9">
+            <ImageView
+                android:layout_height="80dp"
+                android:layout_width="match_parent"
+                android:id="@+id/imageView1"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hugh_jackman"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+            </ImageView>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/instructor_profile_ins_id"
+            android:textSize="30sp"
+            android:text="Instructor id"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            style="@style/courseItemStyle" />
+        <TextView
+            android:layout_below="@id/instructor_profile_ins_id"
+            android:id="@+id/instructor_profile_ins_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="instructor name"
+            android:textSize="20sp"
+            style="@style/courseItemStyle" />
+
     </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/instructor_profile_dept_holder"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_below="@id/instructor_header_holder"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/instructor_profile_dept_level"
+            style="@style/courseItemStyle" />
+        <TextView
+            android:id="@+id/instructor_profile_dept"
+            android:layout_marginLeft="30dp"
+            android:text="Place Holder"
+            style="@style/courseItemStyle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/instructor_profile_contact_holder"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_below="@id/instructor_profile_dept_holder"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/instructor_profile_contact_level"
+            style="@style/courseItemStyle" />
+        <TextView
+            android:id="@+id/instructor_profile_contact"
+            android:layout_marginLeft="30dp"
+            android:text="Place Holder"
+            style="@style/courseItemStyle" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/instructor_profile_courses_level"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_below="@id/instructor_profile_contact_holder"
+        android:text="@string/instructor_profile_courses_level"
+        style="@style/courseItemStyle" />
+
+    <ListView
+        android:layout_below="@id/instructor_profile_courses_level"
+        android:id="@+id/taken_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="16dp"
+        android:divider="@null"
+        android:dividerHeight="0dp">
+    </ListView>
+
 </RelativeLayout>

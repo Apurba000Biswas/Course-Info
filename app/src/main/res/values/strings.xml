@@ -73,4 +73,7 @@
     <string name="course_profile_end_level">End:</string>
     <string name="course_profile_instructor_level">Instructor</string>
     <string name="course_profile_objective_level">Objective</string>
+    <string name="instructor_profile_dept_level">Department </string>
+    <string name="instructor_profile_contact_level">Contact </string>
+    <string name="instructor_profile_courses_level">Courses </string>
 </resources>

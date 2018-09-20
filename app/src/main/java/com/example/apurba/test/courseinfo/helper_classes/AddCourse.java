@@ -353,7 +353,7 @@ public class AddCourse {
 
     private ContentValues getTakenContentValues(){
         ContentValues values = new ContentValues();
-        values.put(TakenEntry.INSTRUCTOR_ID, instructorId);
+        values.put(TakenEntry._ID, instructorId);
         values.put(TakenEntry.COURSE_ID, courseCode);
         return values;
     }
