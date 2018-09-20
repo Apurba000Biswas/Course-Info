@@ -15,7 +15,6 @@ public class CursorExtractor {
 
         Map<String, String> data = new HashMap<>();
         int runningColumnIndex;
-        cursor.moveToFirst();
         for (String column : cursor.getColumnNames()){
             runningColumnIndex = cursor.getColumnIndex(column);
             switch (cursor.getType(runningColumnIndex)) {

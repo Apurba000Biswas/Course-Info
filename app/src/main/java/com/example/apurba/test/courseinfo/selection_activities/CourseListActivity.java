@@ -81,11 +81,14 @@ public class CourseListActivity extends AppCompatActivity {
                         , CourseProfileActivity.class);
                 TextView courseCodeTextView = view.findViewById(R.id.course_code);
                 TextView courseNameTextView = view.findViewById(R.id.course_name);
+                TextView instructorIdTextView = view.findViewById(R.id.instructor_id);
                 String courseCode = courseCodeTextView.getText().toString();
                 String courseName = courseNameTextView.getText().toString();
+                String instructorId = instructorIdTextView.getText().toString();
 
                 profileIntent.putExtra("courseCode", courseCode);
                 profileIntent.putExtra("courseName", courseName);
+                profileIntent.putExtra("instructorId", instructorId);
                 startActivity(profileIntent);
             }
         });

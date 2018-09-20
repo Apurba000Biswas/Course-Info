@@ -1,7 +1,6 @@
 package com.example.apurba.test.courseinfo.selection_activities;
 
 import android.database.Cursor;
-import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -17,7 +16,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.apurba.test.courseinfo.R;
 import com.example.apurba.test.courseinfo.database.CourseDatabaseContract.*;
@@ -28,7 +26,9 @@ import java.util.Map;
 public class CourseProfileActivity extends AppCompatActivity {
 
     private static final int COURSE_LOADER_ID = 0;
+    private static final int INSTRUCTOR_LOADER_ID = 1;
     private String selectedCourseCode;
+    private String selectedCourseInstructorId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +38,52 @@ public class CourseProfileActivity extends AppCompatActivity {
         setCustomTittle();
         selectedCourseCode = getIntent().getStringExtra("courseCode");
         String selectedCourseName = getIntent().getStringExtra("courseName");
+        selectedCourseInstructorId = getIntent().getStringExtra("instructorId");
         setAnimationToHeaders(selectedCourseCode, selectedCourseName);
 
         getSupportLoaderManager().initLoader(COURSE_LOADER_ID
                 , null
                 , courseLoaderListener);
 
+        getSupportLoaderManager().initLoader(INSTRUCTOR_LOADER_ID
+                , null
+                , instructorListerner);
     }
+
+
+    private LoaderManager.LoaderCallbacks<Cursor> instructorListerner =
+            new LoaderManager.LoaderCallbacks<Cursor>(){
+
+        @Override
+        public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+            String[] projection = {InstructorEntry.COLUMN_INSTRUCTOR_NAME};
+            String selection = InstructorEntry._ID
+                    + " LIKE "
+                    + "'%"
+                    + selectedCourseInstructorId
+                    + "%'";
+            return new CursorLoader(CourseProfileActivity.this,
+                    InstructorEntry.CONTENT_URI,
+                    projection,
+                    selection,
+                    null,
+                    null);
+        }
+
+        @Override
+        public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+            data.moveToFirst();
+            System.out.println("Cursor size: " + data.getCount() + "------------------------");
+            TextView instructorNameTextView = findViewById(R.id.course_profile_instructor_name);
+            instructorNameTextView.setText(data.getString(data.getColumnIndex(InstructorEntry.COLUMN_INSTRUCTOR_NAME)));
+        }
+
+        @Override
+        public void onLoaderReset(Loader<Cursor> loader) {
+
+        }
+    };
+
 
     private LoaderManager.LoaderCallbacks<Cursor> courseLoaderListener =
             new LoaderManager.LoaderCallbacks<Cursor>() {
@@ -52,8 +91,7 @@ public class CourseProfileActivity extends AppCompatActivity {
 
                 @Override
                 public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-                    String[] projection = {CourseEntry.COLUMN_INSTRUCTOR_ID
-                            , CourseEntry.COLUMN_STATUS
+                    String[] projection = {CourseEntry.COLUMN_STATUS
                             , CourseEntry.COLUMN_START_TIME
                             , CourseEntry.COLUMN_END_TIME
                             , CourseEntry.COLUMN_OBJECTIVE
@@ -73,21 +111,20 @@ public class CourseProfileActivity extends AppCompatActivity {
 
                 @Override
                 public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+                    data.moveToFirst();
                     Map<String, String> courseData = CursorExtractor.getDataFromCursor(data);
 
                     TextView statusTextView = findViewById(R.id.course_profile_status);
                     TextView startDateTextView = findViewById(R.id.course_profile_start);
                     TextView endDateTextView = findViewById(R.id.course_profile_end);
                     TextView instructorIdTextView = findViewById(R.id.course_profile_instructor_id);
-                    //TextView instructorNameTextView = findViewById(R.id.course_profile_instructor_name);
                     TextView resultTextView = findViewById(R.id.course_profile_result);
                     TextView objective = findViewById(R.id.course_profile_objective);
 
                     statusTextView.setText(CourseEntry.getStatus(Integer.parseInt(courseData.get(CourseEntry.COLUMN_STATUS))));
                     startDateTextView.setText(courseData.get(CourseEntry.COLUMN_START_TIME));
                     endDateTextView.setText(courseData.get(CourseEntry.COLUMN_END_TIME));
-                    instructorIdTextView.setText(courseData.get(CourseEntry.COLUMN_INSTRUCTOR_ID));
-                    //instructorNameTextView.setText(courseData.get(CourseEntry.));
+                    instructorIdTextView.setText(selectedCourseInstructorId);
                     resultTextView.setText(CourseEntry.getResult(Integer.parseInt(courseData.get(CourseEntry.COLUMN_RESULT))));
                     objective.setText(courseData.get(CourseEntry.COLUMN_OBJECTIVE));
                 }
