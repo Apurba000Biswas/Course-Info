@@ -56,6 +56,16 @@ public class CourseDatabaseContract {
             return false;
         }
 
+        public static String getStatus(int status){
+            if (status == CourseEntry.STATUS_RUNNING){
+                return "Running";
+            }else if(status == CourseEntry.STATUS_COMPLETE){
+                return "Completed";
+            }else {
+                return "Unknown";
+            }
+        }
+
         public static final int RESULT_A_PLUS = 1;
         public static final int RESULT_A = 2;
         public static final int RESULT_A_MINUS = 3;
@@ -85,6 +95,37 @@ public class CourseDatabaseContract {
                 return true;
             }
             return false;
+        }
+
+        public static String getResult(int result){
+            switch (result){
+                case RESULT_A_PLUS:
+                    return "A+";
+                case RESULT_A:
+                    return "A";
+                case RESULT_A_MINUS:
+                    return "A-";
+                case RESULT_B_PLUS:
+                    return "B+";
+                case RESULT_B:
+                    return "B";
+                case RESULT_B_MINUS:
+                    return "B-";
+                case RESULT_C_PLUS:
+                    return "C+";
+                case RESULT_C:
+                    return "C";
+                case RESULT_C_MINU:
+                    return "C-";
+                case RESULT_D:
+                    return "D";
+                case RESULT_F:
+                    return "F";
+                case RESULT_NOT_YET:
+                    return "Not yet";
+                default:
+                    return "Unknown";
+            }
         }
 
     }

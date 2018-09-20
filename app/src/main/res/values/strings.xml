@@ -68,4 +68,9 @@
 
     <string name="instructor_id_level">Instructor Id: </string>
     <string name="status_level">Status: </string>
+
+    <string name="course_profile_start_level">Start:</string>
+    <string name="course_profile_end_level">End:</string>
+    <string name="course_profile_instructor_level">Instructor</string>
+    <string name="course_profile_objective_level">Objective</string>
 </resources>

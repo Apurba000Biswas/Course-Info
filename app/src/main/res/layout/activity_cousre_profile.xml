@@ -7,6 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
+        android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <RelativeLayout
@@ -15,19 +16,17 @@
             android:elevation="10dp"
             android:layout_marginBottom="16dp"
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="200dp">
 
             <TextView
                 android:id="@+id/course_code_header"
                 android:textSize="30sp"
                 android:layout_centerInParent="true"
-                android:text="CSE-207"
                 style="@style/courseItemStyle" />
 
             <TextView
                 android:paddingTop="16dp"
                 android:id="@+id/course_name_header"
-                android:text="Database System Management"
                 android:textSize="20sp"
                 android:layout_below="@id/course_code_header"
                 android:layout_centerInParent="true"
@@ -45,22 +44,160 @@
                 app:borderWidth="0dp"
                 app:elevation="6dp"
                 app:fabSize="normal" />
+
+
         </RelativeLayout>
 
-         <TextView
-             android:id="@+id/test1"
-            android:gravity="center"
-            android:text="test"
+        <LinearLayout
+            android:id="@+id/course_profile_status_holder"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_below="@id/header_holder"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="500dp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:gravity="center"
-            android:text="test"
-            android:layout_below="@id/test1"
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20sp"
+                style="@style/courseItemStyle"
+                android:text="@string/status" />
+
+            <TextView
+                android:id="@+id/course_profile_status"
+                android:layout_marginLeft="30dp"
+                style="@style/courseItemStyle"
+                android:text="@string/status" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/course_profile_start_holder"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="42dp"
+            android:layout_marginRight="42dp"
+            android:layout_below="@id/course_profile_status_holder"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="500dp" />
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/courseItemStyle"
+                android:textStyle="bold"
+                android:text="@string/course_profile_start_level" />
+            <TextView
+                android:id="@+id/course_profile_start"
+                android:layout_marginLeft="30dp"
+                style="@style/courseItemStyle"
+                android:text="@string/course_profile_start_level"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/course_profile_end_holder"
+            android:layout_marginLeft="42dp"
+            android:layout_marginRight="42dp"
+            android:layout_below="@id/course_profile_start_holder"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/courseItemStyle"
+                android:textStyle="bold"
+                android:text="@string/course_profile_end_level" />
+            <TextView
+                android:id="@+id/course_profile_end"
+                android:layout_marginLeft="30dp"
+                style="@style/courseItemStyle"
+                android:text="@string/course_profile_end_level"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/course_profile_instructor_holder"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_below="@id/course_profile_end_holder"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    style="@style/courseItemStyle"
+                    android:text="@string/course_profile_instructor_level"/>
+
+                <TextView
+                    android:id="@+id/course_profile_instructor_id"
+                    android:layout_marginLeft="26dp"
+                    android:layout_marginTop="10dp"
+                    style="@style/courseItemStyle"
+                    android:text="instructor id" />
+                <TextView
+                    android:id="@+id/course_profile_instructor_name"
+                    android:layout_marginLeft="26dp"
+                    style="@style/courseItemStyle"
+                    android:text="instructor name" />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_deatils_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/course_profile_result_holder"
+            android:layout_below="@id/course_profile_instructor_holder"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="@string/course_result"
+                style="@style/courseItemStyle" />
+            <TextView
+                android:id="@+id/course_profile_result"
+                android:layout_marginLeft="30dp"
+                style="@style/courseItemStyle"
+                android:text="@string/course_result" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/course_profile_objctive_holder"
+            android:layout_below="@id/course_profile_result_holder"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="32dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="@string/course_profile_objective_level"
+                style="@style/courseItemStyle" />
+            <TextView
+                android:id="@+id/course_profile_objective"
+                android:layout_marginTop="10dp"
+                style="@style/courseItemStyle"
+                android:text="@string/course_profile_objective_level" />
+
+        </LinearLayout>
+
+
+
     </RelativeLayout>
 
 </ScrollView>

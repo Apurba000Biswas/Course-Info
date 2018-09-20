@@ -16,6 +16,9 @@ import android.widget.TextView;
 
 import com.example.apurba.test.courseinfo.R;
 import com.example.apurba.test.courseinfo.database.CourseDatabaseContract.*;
+import com.example.apurba.test.courseinfo.helper_classes.CursorExtractor;
+
+import java.util.Map;
 
 public class courseCursorAdapter extends CursorAdapter{
 
@@ -34,6 +37,8 @@ public class courseCursorAdapter extends CursorAdapter{
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
+        Map<String, String> courseData = CursorExtractor.getDataFromCursor(cursor);
+
         TextView courseCodeText = view.findViewById(R.id.course_code);
         TextView courseNameText = view.findViewById(R.id.course_name);
         TextView instructorIdText = view.findViewById(R.id.instructor_id);
@@ -41,39 +46,15 @@ public class courseCursorAdapter extends CursorAdapter{
         TextView startTime = view.findViewById(R.id.start_time);
         TextView endTime = view.findViewById(R.id.end_time);
 
-        int courseCodeColumnIndex = cursor.getColumnIndex(CourseEntry._ID);
-        int courseNameColumnIndex = cursor.getColumnIndex(CourseEntry.COLUMN_COURSE_NAME);
-        int instructorIdColumnIndex = cursor.getColumnIndex(CourseEntry.COLUMN_INSTRUCTOR_ID);
-        int statusColumnIndex = cursor.getColumnIndex(CourseEntry.COLUMN_STATUS);
-        int startTimeColumnIndex = cursor.getColumnIndex(CourseEntry.COLUMN_START_TIME);
-        int endTimeColumnIndex = cursor.getColumnIndex(CourseEntry.COLUMN_END_TIME);
-
-        String courseCode = cursor.getString(courseCodeColumnIndex);
-        String courseName = cursor.getString(courseNameColumnIndex);
-        String instructorID = cursor.getString(instructorIdColumnIndex);
-        int status = cursor.getInt(statusColumnIndex);
-        String startDate = cursor.getString(startTimeColumnIndex);
-        String endDate = cursor.getString(endTimeColumnIndex);
-
-        courseCodeText.setText(courseCode);
-        courseNameText.setText(courseName);
-        instructorIdText.setText(instructorID);
-        statusText.setText(getStatus(status));
-        startTime.setText(startDate);
-        endTime.setText(endDate);
+        courseCodeText.setText(courseData.get(CourseEntry._ID));
+        courseNameText.setText(courseData.get(CourseEntry.COLUMN_COURSE_NAME));
+        instructorIdText.setText(courseData.get(CourseEntry.COLUMN_INSTRUCTOR_ID));
+        statusText.setText(CourseEntry.getStatus(Integer.parseInt(courseData.get(CourseEntry.COLUMN_STATUS))));
+        startTime.setText(courseData.get(CourseEntry.COLUMN_START_TIME));
+        endTime.setText(courseData.get(CourseEntry.COLUMN_END_TIME));
 
         Animation animation = AnimationUtils.loadAnimation(context, R.anim.scale);
         view.startAnimation(animation);
 
-    }
-
-    private String getStatus(int status){
-        if (status == CourseEntry.STATUS_RUNNING){
-            return "Running";
-        }else if (status == CourseEntry.STATUS_COMPLETE){
-            return "Completed";
-        }else{
-            return "Unknown";
-        }
     }
 }

@@ -1,9 +1,7 @@
 package com.example.apurba.test.courseinfo.selection_activities;
 
-import android.content.ContentUris;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.LoaderManager;
@@ -48,7 +46,7 @@ public class CourseListActivity extends AppCompatActivity {
         courseListView.setEmptyView(emptyView);
         getSupportLoaderManager().initLoader(COURSE_LOADER_ID
                 , null
-                , courseLoaderlistener);
+                , courseLoaderListener);
 
         setListViewToClickResponse(courseListView);
 
@@ -81,8 +79,13 @@ public class CourseListActivity extends AppCompatActivity {
                     , long id) {
                 Intent profileIntent = new Intent(CourseListActivity.this
                         , CourseProfileActivity.class);
-                Uri uri = ContentUris.withAppendedId(CourseEntry.CONTENT_URI, id);
-                profileIntent.setData(uri);
+                TextView courseCodeTextView = view.findViewById(R.id.course_code);
+                TextView courseNameTextView = view.findViewById(R.id.course_name);
+                String courseCode = courseCodeTextView.getText().toString();
+                String courseName = courseNameTextView.getText().toString();
+
+                profileIntent.putExtra("courseCode", courseCode);
+                profileIntent.putExtra("courseName", courseName);
                 startActivity(profileIntent);
             }
         });
@@ -105,7 +108,7 @@ public class CourseListActivity extends AppCompatActivity {
 
 
 
-    private LoaderManager.LoaderCallbacks<Cursor> courseLoaderlistener =
+    private LoaderManager.LoaderCallbacks<Cursor> courseLoaderListener =
             new LoaderManager.LoaderCallbacks<Cursor>() {
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
