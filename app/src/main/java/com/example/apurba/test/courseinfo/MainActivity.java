@@ -53,22 +53,9 @@ public class MainActivity extends AppCompatActivity {
                 completeCourseImageView,
                 completeCourseTextView);
 
-        Button insertDummyCourse = findViewById(R.id.insert_dummy_course);
-        setInsertDummyCourse(insertDummyCourse);
-
-        Button showDummyCourseButt = findViewById(R.id.show_dummy_course);
-        TextView dummyCourseTextView = findViewById(R.id.dummy_text);
-        setShowDummyCourseButt(showDummyCourseButt, dummyCourseTextView);
-
-        Button deleteDummyCourseButt = findViewById(R.id.delete_dummy_course);
-        setDeleteDummyCourseButt(deleteDummyCourseButt);
-
-        Button updateDummyCourseButt = findViewById(R.id.update_dummy_course);
-        setUpdateDummyCourseButt(updateDummyCourseButt);
-
 
     }
-
+    /**
     private void setUpdateDummyCourseButt(Button updateDummyCourseButt){
         updateDummyCourseButt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -222,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
         return values;
     }
 
-
+    */
     private void setOptionClickListener(final ViewGroup transitionsContainer,
                                         final View imageView,
                                         final View textView){
