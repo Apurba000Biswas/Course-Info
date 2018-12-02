@@ -9,4 +9,6 @@
   <img src ="screen_shots/sc1.png" width ="200"> <img src ="screen_shots/sc2.png" width ="200"> <img src ="screen_shots/sc3.png" width ="200"> <img src ="screen_shots/sc4.png" width ="200">
 </div>
 
-**** The UI has good Animation in current version of the App
+Gif
+ --------------
+ ![Alt Text](https://github.com/Apurba000Biswas/Course-Info/blob/master/Gif/course-info.gif)
